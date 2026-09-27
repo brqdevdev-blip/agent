@@ -1,0 +1,134 @@
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #0b0d12;
+  color: #e8eaf0;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid #1d2230;
+}
+h1 { font-size: 14px; margin: 0; }
+.status { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #1d2230; }
+.status.ok { background: #123b2a; color: #4ade80; }
+.status.warn { background: #3b2f12; color: #fbbf24; }
+.status.bad { background: #3b1212; color: #f87171; }
+
+main { padding: 12px; display: grid; gap: 12px; }
+
+#stage {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #10131b;
+  aspect-ratio: 3 / 4;
+  border: 1px solid #1d2230;
+}
+#stage.drop { outline: 2px dashed #6366f1; outline-offset: -6px; }
+#output { width: 100%; height: 100%; object-fit: cover; display: block; }
+#placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 8px;
+  color: #8b93a7;
+  font-size: 12px;
+  padding: 16px;
+}
+#placeholder.live { display: none; }
+.ph-icon { font-size: 34px; }
+
+#garmentBadge {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(10, 12, 18, 0.8);
+  padding: 6px 10px 6px 6px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+#garmentBadge img { width: 28px; height: 28px; border-radius: 999px; object-fit: cover; }
+
+#localPreview {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 30%;
+  aspect-ratio: 3 / 4;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  object-fit: cover;
+  display: none;
+  background: #000;
+}
+#localPreview.on { display: block; }
+
+#spinner {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ffffff33;
+  border-top-color: #818cf8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+button {
+  border: 1px solid #2a3145;
+  background: #161a26;
+  color: #e8eaf0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+button.primary {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border: none;
+  font-weight: 600;
+}
+button:hover { filter: brightness(1.1); }
+.upload {
+  border: 1px solid #2a3145;
+  background: #161a26;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+label.fast { display: flex; gap: 6px; align-items: center; font-size: 12px; color: #8b93a7; }
+
+#settings { border-top: 1px solid #1d2230; padding-top: 10px; font-size: 12px; }
+#settings h2 { font-size: 12px; margin: 0 0 4px; }
+#settings p { color: #8b93a7; margin: 0 0 8px; }
+.row { display: flex; gap: 8px; }
+input[type="password"],
+input[type="url"] {
+  flex: 1;
+  background: #10131b;
+  border: 1px solid #2a3145;
+  color: #e8eaf0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+a { color: #818cf8; }
+.error { color: #f87171; font-size: 12px; margin: 0; }
+
+.row + .row { margin-top: 8px; }
+label.fast { margin-top: 8px; }
+code { background: #10131b; padding: 1px 5px; border-radius: 4px; }

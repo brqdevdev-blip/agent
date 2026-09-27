@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Anywhere Try-On — powered by Decart",
+  "description": "Try on clothes from any fashion site. Click or drag a garment and see it on yourself in realtime.",
+  "version": "0.1.0",
+  "minimum_chrome_version": "116",
+  "permissions": ["sidePanel", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background/service-worker.js" },
+  "side_panel": { "default_path": "sidepanel/sidepanel.html" },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/tryon.js"],
+      "css": ["content/tryon.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": { "default_title": "Open Anywhere Try-On" }
+}

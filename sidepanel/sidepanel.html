@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Anywhere Try-On</title>
+  <link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+  <header>
+    <h1>Anywhere Try-On</h1>
+    <span id="status" class="status">idle</span>
+  </header>
+
+  <main>
+    <div id="stage">
+      <video id="output" autoplay playsinline muted></video>
+      <video id="localPreview" autoplay playsinline muted></video>
+      <div id="placeholder">
+        <div class="ph-icon">👕</div>
+        <p>
+          Click any product image on the page,<br />
+          or drag it onto the “Drop to try on” dock.
+        </p>
+      </div>
+      <div id="garmentBadge" hidden>
+        <img id="garmentThumb" alt="garment" /><span>Trying on…</span>
+      </div>
+      <div id="spinner" hidden></div>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn" class="primary">Start camera</button>
+      <button id="stopBtn" hidden>Stop</button>
+      <label class="upload">
+        Upload garment
+        <input type="file" id="fileInput" accept="image/*" hidden />
+      </label>
+      <label class="fast"><input type="checkbox" id="fastMode" /> Fast mode</label>
+    </div>
+
+    <section id="settings">
+      <h2>Connection</h2>
+      <p>
+        Recommended: run the bundled token server (<code>npm run server</code>) and paste
+        its URL — sessions use short-lived client tokens and your raw key never touches
+        the browser. Or paste a raw API key from
+        <a href="https://platform.decart.ai" target="_blank" rel="noreferrer">platform.decart.ai</a>.
+      </p>
+      <div class="row">
+        <input type="url" id="backendUrl" placeholder="http://localhost:8787 (token server)" />
+        <button id="saveBackend">Save</button>
+      </div>
+      <div class="row">
+        <input type="password" id="apiKey" placeholder="dct_… (direct mode)" />
+        <button id="saveKey">Save</button>
+      </div>
+      <label class="fast">
+        <input type="checkbox" id="aiPrompt" checked />
+        AI-generated prompts (needs token server + OPENAI_API_KEY)
+      </label>
+    </section>
+
+    <p id="error" class="error" hidden></p>
+  </main>
+
+  <script type="module" src="sidepanel.js"></script>
+</body>
+</html>

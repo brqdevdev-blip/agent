@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anywhere Try-On</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>👕 Anywhere Try-On</h1>
+    <span id="status" class="status">idle</span>
+  </header>
+
+  <main>
+    <div id="stage">
+      <video id="output" autoplay playsinline muted></video>
+      <video id="localPreview" autoplay playsinline muted></video>
+      <div id="placeholder">
+        <div class="ph-icon">👕</div>
+        <p>
+          Start the camera, then upload a garment image,<br />
+          paste an image URL, or drag an image here.
+        </p>
+      </div>
+      <div id="garmentBadge" hidden>
+        <img id="garmentThumb" alt="garment" /><span>garment</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn" class="primary">Start camera</button>
+      <button id="stopBtn" hidden>Stop</button>
+      <label class="upload">
+        Upload garment
+        <input type="file" id="fileInput" accept="image/*" hidden />
+      </label>
+    </div>
+
+    <div class="row">
+      <input type="url" id="urlInput" placeholder="…or paste a garment image URL (https://…)" />
+      <button id="urlBtn">Try it</button>
+    </div>
+
+    <div class="row">
+      <input type="text" id="promptInput" placeholder="Optional prompt: e.g. Substitute the current top with a red bomber jacket" />
+    </div>
+
+    <label class="fast">
+      <input type="checkbox" id="aiPrompt" checked />
+      AI-generated prompt from the photo (needs OPENAI_API_KEY on the server)
+    </label>
+
+    <p id="error" class="error" hidden></p>
+  </main>
+
+  <script type="module" src="app.bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+#decart-tryon-btn {
+  position: fixed !important;
+  z-index: 2147483646 !important;
+  display: inline-flex !important;
+  align-items: center;
+  padding: 7px 12px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #fff;
+  font: 600 12px/1 system-ui, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.45);
+}
+#decart-tryon-btn:hover { filter: brightness(1.08); }
+
+#decart-tryon-dock {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 2147483646;
+  padding: 14px 22px;
+  border-radius: 14px;
+  border: 2px dashed #818cf8;
+  background: rgba(10, 12, 20, 0.92);
+  color: #e8eaf0;
+  font: 600 13px/1.4 system-ui, sans-serif;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+#decart-tryon-dock.over {
+  border-color: #a855f7;
+  background: rgba(99, 102, 241, 0.25);
+}
+
+#decart-tryon-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 2147483647;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: rgba(20, 22, 32, 0.95);
+  color: #fff;
+  font: 500 12px/1.4 system-ui, sans-serif;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+#decart-tryon-btn[hidden],
+#decart-tryon-dock[hidden],
+#decart-tryon-toast[hidden] {
+  display: none !important;
+}
